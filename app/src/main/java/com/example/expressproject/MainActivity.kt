@@ -116,7 +116,6 @@ class MainActivity : AppCompatActivity() {
         for (i in categories) {
             chart.addPieSlice(PieModel(i.name, i.amount, Color.parseColor(i.rgb)))
 
-            Toast.makeText(this, i.color.toString(), Toast.LENGTH_SHORT).show()
         }
 
         chart.isClickable = true
@@ -146,7 +145,6 @@ class MainActivity : AppCompatActivity() {
 
             colors.add(Color.parseColor(i.rgb))
 
-            Toast.makeText(this, "" + i.color, Toast.LENGTH_SHORT).show()
         }
 
 

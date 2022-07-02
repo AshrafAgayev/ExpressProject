@@ -11,11 +11,11 @@ class CategoriesList {
         categories.add(Category("Rent A Car", 200F, R.drawable.car, "#9B2FF5",R.color.rentacar))
         categories.add(Category("Hotels and Motels", 1000F, R.drawable.bed,"#5723E1", R.color.hotels))
         categories.add(Category("Transport", 40.6F, R.drawable.transport, "#C3291C",R.color.transport))
-        categories.add(Category("Cars and Vehicles", 12F, R.drawable.car,"#3255F4",R.color.cars))
-        categories.add(Category("Personal Services", 124F, R.drawable.personal,"#9D8980", R.color.personal))
-        categories.add(Category("Government services", 410F, R.drawable.government,"#50B5D0", R.color.government))
-        categories.add(Category("Professional services", 523F, R.drawable.businessman,"#757575",R.color.bussines))
-        categories.add(Category("Bussiness Services", 10.5F, R.drawable.bussines, "#212121", R.color.bussines))
+        categories.add(Category("Cars and Vehicles", 130F, R.drawable.car,"#3255F4",R.color.cars))
+        categories.add(Category("Personal Services", 124F, R.drawable.personal,"#50B5D0", R.color.personal))
+        categories.add(Category("Government services", 410F, R.drawable.government,"#9D8980", R.color.government))
+        categories.add(Category("Professional services", 523F, R.drawable.businessman,"#757575",R.color.professional))
+        categories.add(Category("Bussiness Services", 103F, R.drawable.bussines, "#212121", R.color.bussines))
         categories.add(Category("Clothing", 120.3F, R.drawable.clothe, "#E1325A", R.color.clothing))
 
 

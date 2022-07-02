@@ -35,6 +35,7 @@ class CategoriesAdapter(var categoriesList: ArrayList<Category>, private var con
             holder.itemView.setOnClickListener {
 
                 var intent = Intent(itemView.context, BottomSheet::class.java)
+                intent.putExtra("pos", position)
 
                 itemView.context.startActivity(intent)
 
