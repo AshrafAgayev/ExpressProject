@@ -2,10 +2,18 @@ package com.example.expressproject
 
 
 import android.graphics.Color
+import android.graphics.ColorSpace
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
+import android.widget.Toolbar
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.graphics.toColor
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.expressproject.adapters.CategoriesAdapter
@@ -16,20 +24,42 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import org.eazegraph.lib.models.PieModel
 import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
+        var toolbar: androidx.appcompat.widget.Toolbar? = findViewById(R.id.toolbar)
+
+
+
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = null
+
+
+//        window.setFlags(
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//        )
+
+
+
+
         var categoriesRecycler = findViewById<RecyclerView>(R.id.categoriesRecycler)
         var pieChart: PieChart = findViewById(R.id.pieChart)
 
         setSpinnerData()
+
+
+        piechart3()
 
 
         setupPieChart()
@@ -76,6 +106,26 @@ class MainActivity : AppCompatActivity() {
         spinnerMonth.adapter = adapterMonths
     }
 
+    fun piechart3() {
+
+        var chart = findViewById<org.eazegraph.lib.charts.PieChart>(R.id.piechart2)
+
+
+        var categories = CategoriesList().getCategories()
+
+        for (i in categories) {
+            chart.addPieSlice(PieModel(i.name, i.amount, Color.parseColor(i.rgb)))
+
+            Toast.makeText(this, i.color.toString(), Toast.LENGTH_SHORT).show()
+        }
+
+        chart.isClickable = true
+
+        chart.isUseCustomInnerValue = false
+        chart.currentItem = 0
+
+    }
+
 
     fun setupPieChart() {
         var pieChart: PieChart = findViewById(R.id.pieChart)
@@ -93,37 +143,31 @@ class MainActivity : AppCompatActivity() {
 
 
         for (i in categoriesList) {
-            colors.add(i.color)
+
+            colors.add(Color.parseColor(i.rgb))
+
+            Toast.makeText(this, "" + i.color, Toast.LENGTH_SHORT).show()
         }
 
-//
-//        colors.add(R.color.purple_200)
-//        colors.add(R.color.teal_200)
-//        colors.add(R.color.purple_200)
-//        colors.add(R.color.teal_200)
-//        colors.add(R.color.purple_200)
-//        colors.add(R.color.teal_200)
-//        colors.add(R.color.purple_200)
-//        colors.add(R.color.teal_200)
-//        colors.add(R.color.purple_200)
-//        colors.add(R.color.teal_200)
 
         var pieData = PieData(dataset)
 
+//        for (c in ColorTemplate.COLORFUL_COLORS) colors.add(c)
 
+        dataset.setColors(colors)
 
         pieData.setValueTextSize(16F)
-        dataset.colors = colors
         pieData.setValueTextColor(R.color.white)
         pieData.setValueFormatter(PercentFormatter())
         pieChart.setUsePercentValues(true)
         pieChart.setData(pieData)
         pieChart.animateY(1000)
         pieChart.invalidate()
-        pieChart.holeRadius = 80F
+        pieChart.holeRadius = 70F
 
 
     }
+
 
 
 }
