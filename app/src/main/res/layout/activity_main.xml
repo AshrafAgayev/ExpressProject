@@ -22,7 +22,8 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:background="#E5E5E5">
 
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -44,6 +45,7 @@
                     layout="@layout/appbar"/>
 
                 <Spinner
+                    android:id="@+id/spinner_card"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="15dp"
@@ -55,12 +57,15 @@
                     android:orientation="horizontal">
 
                     <Spinner
+
                         android:id="@+id/spinner_year"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_margin="15dp"
                         android:layout_weight="4"
-                        android:background="@drawable/bckg_spinner" />
+                        android:background="@drawable/bckg_spinner"
+                        android:textAlignment="center"
+                        />
 
                     <Spinner
                         android:id="@+id/spinner_month"
@@ -97,43 +102,86 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="1 300 000"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_margin="20dp"/>
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="1 400 4000"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:text="1 400 4000"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/expences"
+                        android:textColor="#F58220" />
+                </LinearLayout>
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="2139112 3"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_margin="20dp"/>
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="1 400 4000"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/incomings"
+                        android:textColor="#F58220"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="21391123"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cashback"
+                        android:textColor="#F58220"/>
+
+                </LinearLayout>
+
             </LinearLayout>
-
-            <org.eazegraph.lib.charts.PieChart
-                android:id="@+id/piechart2"
-                android:layout_width="match_parent"
-                android:layout_height="400dp">
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pieChart"
@@ -144,7 +192,7 @@
 
 
 
-            </org.eazegraph.lib.charts.PieChart>
+
 
             <TextView
                 android:layout_width="wrap_content"

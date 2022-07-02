@@ -22,7 +22,12 @@ import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter
+import com.github.mikephil.charting.formatter.DefaultValueFormatter
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener
+import com.github.mikephil.charting.renderer.PieChartRenderer
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.eazegraph.lib.models.PieModel
@@ -58,10 +63,6 @@ class MainActivity : AppCompatActivity() {
 
         setSpinnerData()
 
-
-        piechart3()
-
-
         setupPieChart()
 
         var layoutManager = LinearLayoutManager(this)
@@ -76,6 +77,7 @@ class MainActivity : AppCompatActivity() {
     private fun setSpinnerData() {
 
 
+
         val Months = arrayOf(
             "Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avqust", "Sentyabr",
             "Oktyabr", "Noyabr", "Dekabr"
@@ -83,6 +85,8 @@ class MainActivity : AppCompatActivity() {
 
         var spinnerYear = findViewById<Spinner>(R.id.spinner_year)
         var spinnerMonth = findViewById<Spinner>(R.id.spinner_month)
+        var spinnerCards = findViewById<Spinner>(R.id.spinner_card)
+
 
         //Years
         val yearsList = ArrayList<String>()
@@ -106,24 +110,24 @@ class MainActivity : AppCompatActivity() {
         spinnerMonth.adapter = adapterMonths
     }
 
-    fun piechart3() {
-
-        var chart = findViewById<org.eazegraph.lib.charts.PieChart>(R.id.piechart2)
-
-
-        var categories = CategoriesList().getCategories()
-
-        for (i in categories) {
-            chart.addPieSlice(PieModel(i.name, i.amount, Color.parseColor(i.rgb)))
-
-        }
-
-        chart.isClickable = true
-
-        chart.isUseCustomInnerValue = false
-        chart.currentItem = 0
-
-    }
+//    fun piechart3() {
+//
+//        var chart = findViewById<org.eazegraph.lib.charts.PieChart>(R.id.piechart2)
+//
+//
+//        var categories = CategoriesList().getCategories()
+//
+//        for (i in categories) {
+//            chart.addPieSlice(PieModel(i.name, i.amount, Color.parseColor(i.rgb)))
+//
+//        }
+//
+//        chart.isClickable = true
+//
+//        chart.isUseCustomInnerValue = false
+//        chart.currentItem = 0
+//
+//    }
 
 
     fun setupPieChart() {
@@ -154,14 +158,15 @@ class MainActivity : AppCompatActivity() {
 
         dataset.setColors(colors)
 
-        pieData.setValueTextSize(16F)
-        pieData.setValueTextColor(R.color.white)
-        pieData.setValueFormatter(PercentFormatter())
-        pieChart.setUsePercentValues(true)
+
+        pieData.setValueFormatter( IndexAxisValueFormatter())
+
         pieChart.setData(pieData)
         pieChart.animateY(1000)
-        pieChart.invalidate()
+        pieChart.setDrawEntryLabels(false)
+        pieChart.setUsePercentValues(false)
         pieChart.holeRadius = 70F
+        pieChart.description = null
 
 
     }

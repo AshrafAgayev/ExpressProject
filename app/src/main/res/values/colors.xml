@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="invisible">#FFFFFFFF</color>
     <color name="textcolor">#231F20</color>
+    <color name="lighttextcolor">#5F6369</color>
 
     
     <color name="airlines">#4BAFF8</color>
@@ -21,4 +22,5 @@
     <color name="professional">#757575</color>
     <color name="bussines">#212121</color>
     <color name="clothing">#E1325A</color>
+    <color name="transparent">#00E1325A</color>
 </resources>

@@ -15,7 +15,7 @@ import com.example.expressproject.model.Category
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlin.math.exp
 
-class BottomSheet : AppCompatActivity() {
+class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_bottom_details)
