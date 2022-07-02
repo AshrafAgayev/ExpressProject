@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="#E5E5E5"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:title="Stats">
 
@@ -115,8 +115,7 @@
                     >
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:text="1 400 4000"
                         android:textColor="@color/black"
                         android:textSize="18sp"
@@ -141,8 +140,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="1 400 4000"
                         android:textColor="@color/black"
