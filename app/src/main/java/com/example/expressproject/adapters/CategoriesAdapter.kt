@@ -17,7 +17,7 @@ class CategoriesAdapter(var categoriesList: ArrayList<Category>, private var con
     RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
 
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun setData(holder: CategoriesAdapter.ViewHolder, position: Int) {
 
@@ -38,8 +38,6 @@ class CategoriesAdapter(var categoriesList: ArrayList<Category>, private var con
         var price = itemView.findViewById<TextView>(R.id.tvPrice)
 
 
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -52,7 +50,7 @@ class CategoriesAdapter(var categoriesList: ArrayList<Category>, private var con
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.image.setImageResource(categoriesList.get(position).icon)
         holder.categoryName.text = categoriesList.get(position).name
-        holder.percentage.text = categoriesList.get(position).amount.toString()
+        holder.percentage.text = getPercents(position)
         holder.price.text = categoriesList.get(position).amount.toString()
 
 
@@ -69,6 +67,16 @@ class CategoriesAdapter(var categoriesList: ArrayList<Category>, private var con
 
     override fun getItemCount(): Int {
         return categoriesList.size
+    }
+
+    fun getPercents(position: Int) : String{
+        var total = 0.0
+        for( i in categoriesList){
+            total += i.amount
+        }
+
+        var percent =  (categoriesList.get(position).amount/total *100).toInt()
+        return percent.toString()+" %"
     }
 
 

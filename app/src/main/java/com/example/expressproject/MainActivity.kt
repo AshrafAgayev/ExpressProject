@@ -16,7 +16,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.graphics.toColor
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.expressproject.adapters.CardsAdapter
 import com.example.expressproject.adapters.CategoriesAdapter
+import com.example.expressproject.model.CardsList
 import com.example.expressproject.model.CategoriesList
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -87,6 +89,9 @@ class MainActivity : AppCompatActivity() {
         var spinnerMonth = findViewById<Spinner>(R.id.spinner_month)
         var spinnerCards = findViewById<Spinner>(R.id.spinner_card)
 
+
+        var adapter = CardsAdapter(this, CardsList().getCardsList())
+        spinnerCards.adapter = adapter
 
         //Years
         val yearsList = ArrayList<String>()

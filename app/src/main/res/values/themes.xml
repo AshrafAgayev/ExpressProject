@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ExpressProject" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#F5F5F5</item>
+        <item name="colorPrimary">#E5E5E5</item>
         <item name="colorPrimaryVariant">#8F8F8F</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
